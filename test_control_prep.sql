@@ -63,8 +63,6 @@ dy_pe_transpose b
 on a.cust_acct_key=b.cust_acct_key and a.precima_ofb_id=b.ofb_id and a.incentive_print_1=b.incentive; --16083848
 
 
-
-select cust_acct_key, avg(inc_percent) from final_offer_assgmt_dm1_pe_ofb group by 1
-
-
-
+--variable cohort and avg_disc_perc
+create table tc_prep_v1 as
+select cust_acct_key, cohort, avg(inc_percent) from final_offer_assgmt_dm1_pe_ofb group by 1,2;  --2010481
